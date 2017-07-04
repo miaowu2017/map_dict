@@ -33,6 +33,6 @@ def test():
 def test2(str1):
     return variableLethHelper(digits=3).unpack(str1)
 
-print test()
-for each in test2('00110012006中国'):
-    print each
+# print test()
+# for each in test2('00110012006中国'):
+#     print each

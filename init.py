@@ -8,6 +8,8 @@ def prcsit(str1):
     str1 = str1.lstrip('[')
     str1 = str1.rstrip(']')
     return str1.split(',')
+
+
 cfg = ConfigParser()
 cfg.read('params.ini')
 # xml
@@ -23,30 +25,37 @@ fields_len = prcsit(fields_len)
 fixed_blank = prcsit(fixed_blank)
 leftfixed = cfg.get('FIXED','leftfixed')
 
-print filename
-print tagname
-print digits
-print fields_len
-print fixed_blank
-print leftfixed
+def printConfig():
+    #print config
+    print 'config list'
+    print '-'*30
+    print 'xml:'
+    print '\tfilename:',filename
+    print '\ttagname:',tagname
+    print 'variable:'
+    print '\tdigits:',digits
+    print 'fixed:'
+    print '\tfields_len:',fields_len
+    print '\tfixed_blank:',fixed_blank
+    print '\tleftfixed:',bool(leftfixed)
 
 def parseXML():
     xhlp = xmlHelper(filename=filename)
     return map(lambda x:xhlp.getNodeValues(tagname=x),tagname)
-
-print '-'*20
-print tagname[0]
-for name in parseXML()[0]:
-    print name
-print '-'*20
-print tagname[1]
-for acc in parseXML()[1]:
-    print acc
-print '-'*20
-print tagname[2]
-for balance in parseXML()[2]:
-    print balance
-print '-'*20
+#
+# print '-'*20
+# print tagname[0]
+# for name in parseXML()[0]:
+#     print name
+# print '-'*20
+# print tagname[1]
+# for acc in parseXML()[1]:
+#     print acc
+# print '-'*20
+# print tagname[2]
+# for balance in parseXML()[2]:
+#     print balance
+# print '-'*20
 
 
 def parseFixed():
@@ -56,7 +65,7 @@ def parseFixed():
     fhlp = fixedLethHelper(fields_len=fields_len,fixed_blank=fixed_blank,leftfixed=bool(leftfixed))
     print fhlp.unpack(str1=str1)
 
-parseFixed()
+# parseFixed()
 
 
 def parseVariable():
@@ -68,8 +77,10 @@ def parseVariable():
     print vhlp.unpack(str1)
 
 
-parseVariable()
+# parseVariable()
 
+if __name__ == '__main__':
+    printConfig()
 
 
 
