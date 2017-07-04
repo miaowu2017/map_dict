@@ -21,10 +21,10 @@ class variableLethHelper(object):
         res_data = []
         i = 0
         while i <len(str1):
-            field_len = int(str1[i:i+self.digits])
-            i = i + self.digits
-            field_value = str1[i:i+field_len]
-            i = i + field_len
+            field_len = int(str1[i:i+int(self.digits)])
+            i = i + int(self.digits)
+            field_value = str1[i:i+int(field_len)]
+            i = i + int(field_len)
             res_data.append(field_value)
         return res_data
 def test():

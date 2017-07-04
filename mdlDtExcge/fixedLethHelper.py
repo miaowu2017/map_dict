@@ -38,10 +38,10 @@ class fixedLethHelper(object):
         j = 0
         while i < len(self.fields_len):
             current_len = self.fields_len[i]
-            current_dat = str1[j:j + current_len]
+            current_dat = str1[j:j + int(current_len)]
             data_result.append(current_dat)
             i += 1
-            j += current_len
+            j += int(current_len)
         return tuple(data_result)
 def test():
     fh = fixedLethHelper(leftfixed=False,fields_len=[3,5,10],fixed_blank=['0','0','*'])
