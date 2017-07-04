@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custList>
+    <cust>
+        <name>张三</name>
+        <acc>123455</acc>
+        <balance>18.5</balance>
+    </cust>
+    <cust>
+        <name>李四</name>
+        <acc>222222</acc>
+        <balance>20.3</balance>
+    </cust>
+    <cust>
+        <name>王五</name>
+        <acc>20543</acc>
+        <balance>12.22</balance>
+    </cust>
+</custList>

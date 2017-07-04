@@ -1,5 +1,6 @@
 #-*-coding:utf-8-*-
 from ConfigParser import ConfigParser
+from mdlDtExcge.xmlHelper import xmlHelper
 # '[ ,*,+]' ==> [' ','*','+']
 def prcsit(str1):
     str1 = str1.lstrip('[')
@@ -26,6 +27,10 @@ print digits
 print fields_len
 print fixed_blank
 print leftfixed
+
+def parseXML():
+    xhlp = xmlHelper()
+
 
 
 
