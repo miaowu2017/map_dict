@@ -17,4 +17,4 @@ class clt(object):
             print self.cltSocket.recv(1024)
 
 
-clt(host='127.0.0.1',port=9999).run()
+# clt(host='127.0.0.1',port=9999).run()

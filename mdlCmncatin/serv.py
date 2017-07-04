@@ -23,10 +23,10 @@ class serv(object):
             t = Thread(target=self.clntsockfunc,args=(clntSocket,))
             t.start()
             t.join(timeout=1)
-def senddata(clntsocket):
-    data = clntsocket.recv(1024)
-    if data:
-        print data
-    clntsocket.send('hello client')
-    clntsocket.close()
-serv(host='127.0.0.1',port=9999,max_conn=10,clntsockfunc=senddata).run()
+# def senddata(clntsocket):
+#     data = clntsocket.recv(1024)
+#     if data:
+#         print data
+#     clntsocket.send('hello client')
+#     clntsocket.close()
+# serv(host='127.0.0.1',port=9999,max_conn=10,clntsockfunc=senddata).run()
