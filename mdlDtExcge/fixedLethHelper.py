@@ -4,7 +4,6 @@ class fixedLethHelper(object):
     leftfixed = False
     def __init__(self,fields_len,fixed_blank,leftfixed=False):
         """
-
         :param fields_len:lenght of each field
         :param fixed_blank: fixed char of each field
         :param leftfixed: fixed position of the content
