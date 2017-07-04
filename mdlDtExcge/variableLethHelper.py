@@ -1,7 +1,11 @@
 #-*-coding:utf-8-*-
+import shelve
+slv = shelve.open('../mdlConfig/config')
+params = slv['params']
+slv.close()
 class variableLethHelper(object):
     digits = 3
-    def __init__(self,digits):
+    def __init__(self,digits=params['digits']):
         """
         :param digits:每个字段前面digits位表示变长长度的意思
         """

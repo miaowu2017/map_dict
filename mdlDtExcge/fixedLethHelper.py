@@ -1,8 +1,12 @@
 #-*-coding:utf-8-*-
+import shelve
+slv = shelve.open('../mdlConfig/config')
+params = slv['params']
+slv.close()
 class fixedLethHelper(object):
     fields_len = []
     leftfixed = False
-    def __init__(self,fields_len,fixed_blank,leftfixed=False):
+    def __init__(self,fields_len=params['fields_len'],fixed_blank=params['fixed_blank'],leftfixed=params['leftfixed']):
         """
         :param fields_len:lenght of each field
         :param fixed_blank: fixed char of each field
@@ -20,7 +24,7 @@ class fixedLethHelper(object):
         for i in range(0,len(self.fields_len)):
             current_data = data[i]
             current_data_len = len(current_data)
-            current_fixed_len = self.fields_len[i]
+            current_fixed_len = int(self.fields_len[i])
             if current_data_len > current_fixed_len:
                 raise Exception("len above the fixed lenght")
             elif current_data_len == current_fixed_len:
@@ -44,9 +48,10 @@ class fixedLethHelper(object):
             j += int(current_len)
         return tuple(data_result)
 def test():
-    fh = fixedLethHelper(leftfixed=False,fields_len=[3,5,10],fixed_blank=['0','0','*'])
-    str1 =  fh.pack(['01','0001',u'中国'])
+    fh = fixedLethHelper()
+    str1 =  fh.pack(['01','01',u'hi'])
     data = fh.unpack(str1)
     print data
     for i in range(len(data)):
         print data[i]
+test()
