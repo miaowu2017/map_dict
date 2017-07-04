@@ -18,4 +18,3 @@ class xmlHelper(object):
         tags = self.root.getElementsByTagName(tagname)
         ids = range(0,len(tags))
         return map(lambda x:tags[x].firstChild.data,ids)
-
