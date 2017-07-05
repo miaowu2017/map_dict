@@ -16,5 +16,4 @@ class clt(object):
             self.cltSocket.send(raw_input('>'))
             print self.cltSocket.recv(1024)
 
-
 # clt(host='127.0.0.1',port=9999).run()

@@ -50,4 +50,4 @@ def printConfig():
     print '\tleftfixed:',bool(leftfixed)
 if __name__ == '__main__':
     getConfig()
-    printConfig()
+    # printConfig()

@@ -32,10 +32,10 @@ class variableLethHelper(object):
             res_data.append(field_value)
         return res_data
 def test():
-    return variableLethHelper(digits=3).pack([1,2,"中国"])
+    return variableLethHelper().pack([1,2,"中国"])
 
 def test2(str1):
-    return variableLethHelper(digits=3).unpack(str1)
+    return variableLethHelper().unpack(str1)
 
 # print test()
 # for each in test2('00110012006中国'):
