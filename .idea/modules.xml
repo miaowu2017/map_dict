@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../map_dict/.idea/map_dict.iml" filepath="$PROJECT_DIR$/../map_dict/.idea/map_dict.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/prjUntPrtclProcess.iml" filepath="$PROJECT_DIR$/.idea/prjUntPrtclProcess.iml" />
     </modules>
   </component>
