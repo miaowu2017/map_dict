@@ -50,8 +50,9 @@ class fixedLethHelper(object):
 def test():
     fh = fixedLethHelper()
     str1 =  fh.pack(['01','01',u'hi'])
+    print str1
     data = fh.unpack(str1)
     print data
     for i in range(len(data)):
         print data[i]
-test()
+# test()

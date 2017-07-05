@@ -14,6 +14,8 @@ class clt(object):
             self.cltSocket.connect((self.host,self.port))
             print '*'*70
             self.cltSocket.send(raw_input('>'))
-            print self.cltSocket.recv(1024)
-
-# clt(host='127.0.0.1',port=9999).run()
+            try:
+                print self.cltSocket.recv(1024)
+            except Exception as e:
+                print e.message
+clt(host='127.0.0.1',port=1000).run()
