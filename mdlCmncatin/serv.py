@@ -26,13 +26,6 @@ class serv(object):
         clntsocket.close()
     def importfunc(self,func):
         self.func = func
-    def importtrxcode(self,trxcode):
-        '''
-        支持导入多交易
-        :param trxcode:字典结构
-        :return:
-        '''
-        self.trxcode = trxcode
     def run(self):
         self.servSocket.listen(self.max_conn)
         print 'serv working...'
@@ -41,14 +34,13 @@ class serv(object):
             print 'on line [%s]'%ctime(),addr
             testLog.write(self.logfile,'on line [%s]'%ctime()+str(addr))
             # 打印可以测试的交易
-            print self.trxcode
             try:
-                sub = raw_input('>Enter trxcode:')
-                subid = self.trxcode.index(sub)
-                if subid<0:
-                    continue
-                print 'simulate [%s]'%sub
-                t = Thread(target=self.func,args=(clntSocket,self.trxcode[subid]))
+                # sub = raw_input('>Enter trxcode:')
+                # subid = self.trxcode.index(sub)
+                # if subid<0:
+                #     continue
+                # print 'simulate [%s]'%sub
+                t = Thread(target=self.func,args=(clntSocket,))
                 t.start()
                 t.join(timeout=1)
             except Exception as e:
