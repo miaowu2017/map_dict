@@ -16,7 +16,7 @@ class serv(object):
         self.max_conn = max_conn
         self.func = self.foo
         self.logfile = logfile
-    def foo(self,clntsocket):
+    def foo(self,clntsocket,trxcode='99999'):
         #接收数据
         data = clntsocket.recv(1024)
         if data:
@@ -26,6 +26,8 @@ class serv(object):
         clntsocket.close()
     def importfunc(self,func):
         self.func = func
+    def importtrxcode(self,trxcode):
+        self.trxcode = trxcode
     def run(self):
         self.servSocket.listen(self.max_conn)
         print 'serv working...'
@@ -34,7 +36,7 @@ class serv(object):
             print 'on line [%s]'%ctime(),addr
             testLog.write(self.logfile,'on line [%s]'%ctime()+str(addr))
             try:
-                t = Thread(target=self.func,args=(clntSocket,))
+                t = Thread(target=self.func,args=(clntSocket,self.trxcode))
                 t.start()
                 t.join(timeout=1)
             except Exception as e:
